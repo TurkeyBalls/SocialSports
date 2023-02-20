@@ -7,17 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "playtomic": "nightwatch .\\nightwatch\\examples\\playtomic.js",
     "stratford": "nightwatch .\\nightwatch\\examples\\stratford.js",
-	"start": "npm run playtomic && npm run stratford"
+    "start": "npm run playtomic && npm run stratford"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "lodash": "4.17.21",
+    "moment": "2.29.4",
     "nightwatch": "2.6.14",
     "open": "8.4.1"
   },
   "devDependencies": {
-    "chromedriver": "^110.0.0"
+    "chromedriver": "110.0.0"
   }
 }
