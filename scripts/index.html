@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+	<label>
+		Select what day for (default is today)
+		<input type='date' onchange='getHideParkSport(event.target.value)' />
+	</label>
+	<script>
+		axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
+		const getPaddedStuff = (d) => {
+			const date = new Date(d);
+			const year = date.getFullYear(); 
+			const month = (date.getMonth() + 1 + "").padStart(2, 0); 
+			const day = (date.getDate() + "").padStart(2, 0);
+			return [year, month, day];
+		}
+		
+		const getHideParkSport = async (date) => {
+			const [year, month, day] = getPaddedStuff(date.split("-"));
+			const hydeParkSport = `https://hyde.parksports.co.uk/Booking/BookByDate#?date=${year}-${month}-${day}&role=guest`;
+			try {
+				const data = await axios.get(hydeParkSport);
+				console.log(data)
+			} catch (e) {
+				console.log("we got this error", e)
+			}
+		};
+
+	</script>
+</body>
+</html>

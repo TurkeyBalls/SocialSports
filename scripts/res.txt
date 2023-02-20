@@ -1,0 +1,18 @@
+function fetch(e, t, a, n, r) {
+	var i = Na.DateTime.fromISO(a, {
+		zone: n
+	}).setZone(n)
+		, o = i.startOf("day")
+		, s = i.endOf("day");
+	return Cc(r, "/v1/availability", {
+		user_id: "me",
+		tenant_id: e,
+		sport_id: t,
+		local_start_min: o.toISO().split(".")[0],
+		local_start_max: s.toISO().split(".")[0]
+	}, !1, {
+		date: a,
+		tenantId: e,
+		sportId: t
+	})
+};
