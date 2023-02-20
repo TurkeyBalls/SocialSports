@@ -61,9 +61,9 @@ describe('playtomic example', function () {
 				const courtsNames = ["centre court", "court 2", "terracotta court", "court 1", "panoramic court"];
 				const courtTimes = ["Time\\Court", ...Object.keys(value[0])];
 				const bookedSlots = value.map((court, courtIndex) => [courtsNames[courtIndex], ...Object.values(court)]);
-				const matrix = [courtTimes, ...bookedSlots];
-				const tomorrow = moment().add(1, 'days').format("YYYY-MM-DD")
-				const csv = "\n\n" + [tomorrow, ...transpose(matrix).map(row => row.join("\t"))].join("\n");
+				const matrix = [['Day', ...Array(courtTimes.length - 1).fill(moment().format("ddd"))], courtTimes, ...bookedSlots];
+				const today = moment().format("YYYY-MM-DD");
+				const csv = "\n\n" + [today, ...transpose(matrix).map(row => row.join("\t"))].join("\n");
 				fs.appendFileSync(path.join(__dirname , '../../data/stratford.tsv'), csv);
 			});
 	});

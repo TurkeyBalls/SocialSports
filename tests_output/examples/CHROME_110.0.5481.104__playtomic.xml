@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="1"
+            failures="0"
             tests="1">
 
   <testsuite name="examples.playtomic"
-    errors="0" failures="1" hostname="" id="" package="playtomic" skipped="0"
-    tests="1" time="7.325" timestamp="">
+    errors="0" failures="0" hostname="" id="" package="playtomic" skipped="0"
+    tests="1" time="1.948" timestamp="">
   
-    <testcase name="Search Nightwatch.js and check results" classname="examples.playtomic" time="7.325" assertions="1">  <failure message="Timed out while waiting for element &lt;.bbq2__slots-resource&gt; to be present for 5000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (5278ms)">    at DescribeInstance.&lt;anonymous&gt; (C:\Users\artig\Projects\NOT_WORK\4_Sam\nightwatch\examples\playtomic.js:11:5)</failure>
+    <testcase name="Search Nightwatch.js and check results" classname="examples.playtomic" time="1.948" assertions="1">
 
     
     </testcase>
