@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const moment = require('moment');
 
 const transpose = m => m[0].map((_, i) => m.map(x => x[i]));
 
@@ -61,7 +62,8 @@ describe('playtomic example', function () {
 				const courtTimes = ["Time\\Court", ...Object.keys(value[0])];
 				const bookedSlots = value.map((court, courtIndex) => [courtsNames[courtIndex], ...Object.values(court)]);
 				const matrix = [courtTimes, ...bookedSlots];
-				const csv = "\n\n" + transpose(matrix).map(row => row.join("\t")).join("\n");
+				const tomorrow = moment().add(1, 'days').format("YYYY-MM-DD")
+				const csv = "\n\n" + [tomorrow, ...transpose(matrix).map(row => row.join("\t"))].join("\n");
 				fs.appendFileSync(path.join(__dirname , '../../data/stratford.tsv'), csv);
 			});
 	});
