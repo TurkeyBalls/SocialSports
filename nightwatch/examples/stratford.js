@@ -25,15 +25,15 @@ describe('playtomic example', function () {
 					// initialise slots
 					const bookedHalfedHours = {};
 					for (let i = 10; i < 23; i++) {
-						bookedHalfedHours[("" + i).padStart(2, "0") + ":00"] = false;
-						bookedHalfedHours[("" + i).padStart(2, "0") + ":30"] = false;
+						bookedHalfedHours[("" + i).padStart(2, "0") + ":00"] = 0;
+						bookedHalfedHours[("" + i).padStart(2, "0") + ":30"] = 0;
 					}
 					times.forEach((time) => {
 						const [start, end] = time.split("-");
 					
 						for (let currentTime = new Date('2017-03-13 ' + start); currentTime < new Date('2017-03-13 ' + end);) {
 							const timeKey = (currentTime.getHours() + "").padStart(2, "0") + ":" + (currentTime.getMinutes() + "").padEnd(2, "0"); 
-							bookedHalfedHours[timeKey] = true;
+							bookedHalfedHours[timeKey] = 1;
 							currentTime.setMinutes(currentTime.getMinutes() + 30);
 						}
 					});

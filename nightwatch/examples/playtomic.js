@@ -27,8 +27,8 @@ describe('playtomic example', function () {
 				const createAllHalfHoursSlots = () => {
 					const bookedHalfedHours = {};
 					for (let i = OPENING_HOUR; i < 24; i++) {
-						bookedHalfedHours[("" + i).padStart(2, "0") + ":00"] = true;
-						bookedHalfedHours[("" + i).padStart(2, "0") + ":30"] = true;
+						bookedHalfedHours[("" + i).padStart(2, "0") + ":00"] = 1;
+						bookedHalfedHours[("" + i).padStart(2, "0") + ":30"] = 1;
 					}
 					return bookedHalfedHours;
 				}
@@ -50,11 +50,11 @@ describe('playtomic example', function () {
 						let hours = Math.floor(time);
 						let isHalf = time % 1 === .5;
 						let timeKey = getTime(hours, isHalf);
-						takenSlots[currentCourtIndex][timeKey] = false;
+						takenSlots[currentCourtIndex][timeKey] = 0;
 
 						hours = Math.floor(time + .5);
 						timeKey = getTime(hours, !isHalf);
-						takenSlots[currentCourtIndex][timeKey] = false;
+						takenSlots[currentCourtIndex][timeKey] = 0;
 					});
 				});
 				/**
