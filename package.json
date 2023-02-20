@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "playtomic": "nightwatch .\\nightwatch\\examples\\playtomic.js",
     "stratford": "nightwatch .\\nightwatch\\examples\\stratford.js",
-    "start": "npm run playtomic && npm run stratford"
+    "start": "npm run stratford && npm run playtomic"
   },
   "keywords": [],
   "author": "",
