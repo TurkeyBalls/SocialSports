@@ -70,7 +70,7 @@ describe('playtomic example', function () {
 				const matrix = [courtTimes, ...bookedSlots];
 				const csvWithoutCourtNames = transpose(matrix).map(row => row.join("\t"));
 				const csv = "\n\n" + [courtNames.join("\t"), ...csvWithoutCourtNames].join("\n");
-				fs.appendFileSync(path.join(__dirname , '../../data/playtomic.csv'), csv);
+				fs.appendFileSync(path.join(__dirname , '../../data/playtomic.tsv'), csv);
 			});
 	});
 });

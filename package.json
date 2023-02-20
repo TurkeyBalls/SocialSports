@@ -19,6 +19,6 @@
     "open": "8.4.1"
   },
   "devDependencies": {
-    "chromedriver": "110.0.0"
+    "chromedriver": "109.0.0"
   }
 }

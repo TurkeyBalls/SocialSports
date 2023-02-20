@@ -62,7 +62,7 @@ describe('playtomic example', function () {
 				const bookedSlots = value.map((court, courtIndex) => [courtsNames[courtIndex], ...Object.values(court)]);
 				const matrix = [courtTimes, ...bookedSlots];
 				const csv = "\n\n" + transpose(matrix).map(row => row.join("\t")).join("\n");
-				fs.appendFileSync(path.join(__dirname , '../../data/stratford.csv'), csv);
+				fs.appendFileSync(path.join(__dirname , '../../data/stratford.tsv'), csv);
 			});
 	});
 });
