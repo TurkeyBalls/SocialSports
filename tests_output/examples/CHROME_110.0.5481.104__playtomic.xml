@@ -5,9 +5,9 @@
 
   <testsuite name="examples.playtomic"
     errors="0" failures="0" hostname="" id="" package="playtomic" skipped="0"
-    tests="1" time="1.948" timestamp="">
+    tests="1" time="3.608" timestamp="">
   
-    <testcase name="Search Nightwatch.js and check results" classname="examples.playtomic" time="1.948" assertions="1">
+    <testcase name="Search Nightwatch.js and check results" classname="examples.playtomic" time="3.608" assertions="1">
 
     
     </testcase>
