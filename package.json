@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "playtomic": "nightwatch .\\nightwatch\\examples\\playtomic.js",
+    "playtomicChiswick": "nightwatch .\\nightwatch\\examples\\playtomicChiswick.js",
+    "playtomicDerby": "nightwatch .\\nightwatch\\examples\\playtomicDerby.js",
+    "playtomicSurge": "nightwatch .\\nightwatch\\examples\\playtomicSurge.js",
+    "playtomicWilmslow": "nightwatch .\\nightwatch\\examples\\playtomicWilmslow.js",
     "stratford": "nightwatch .\\nightwatch\\examples\\stratford.js",
-    "start": "npm run stratford && npm run playtomic"
+    "start": "npm run stratford & npm run playtomicChiswick & npm run playtomicDerby & npm run playtomicSurge & npm run playtomicWilmslow"
   },
   "keywords": [],
   "author": "",

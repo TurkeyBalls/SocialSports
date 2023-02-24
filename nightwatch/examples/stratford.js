@@ -58,12 +58,15 @@ describe('playtomic example', function () {
 
 				return slotsByCourt;
 			}, [], ({ value }) => {
-				const courtsNames = ["centre court", "court 2", "terracotta court", "court 1", "panoramic court"];
-				const courtTimes = ["Time\\Court", ...Object.keys(value[0])];
-				const bookedSlots = value.map((court, courtIndex) => [courtsNames[courtIndex], ...Object.values(court)]);
-				const matrix = [['Day', ...Array(courtTimes.length - 1).fill(moment().format("ddd"))], courtTimes, ...bookedSlots];
-				const today = moment().format("YYYY-MM-DD");
-				const csv = "\n\n" + [today, ...transpose(matrix).map(row => row.join("\t"))].join("\n");
+				const courtTimes = Object.keys(value[0]);
+				const bookedSlots = value.map((court) => Object.values(court));
+				console.log(value)
+				const matrix = [
+					Array(courtTimes.length - 1).fill(moment().format("ddd")),
+					courtTimes,
+					...bookedSlots
+				];
+				const csv = "\n" + [...transpose(matrix).map(row => row.join("\t"))].join("\n");
 				fs.appendFileSync(path.join(__dirname , '../../data/stratford.tsv'), csv);
 			});
 	});
