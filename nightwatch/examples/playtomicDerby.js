@@ -1,19 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const moment = require('moment');
-const transpose = m => m[0].map((_, i) => m.map(x => x[i]));
-
-// IF YOU WANT TO CHANGE THE DAY FROM TODAY TO TOMORRO (and viceversa), YOU
-// CAN CHANGE THE VALUE BELOW:
-// TODAY -> moment().add(0, 'days')
-// TOMORROW -> moment().add(1, 'days')
-const day = moment().add(1, 'days');
-const nameOfTheDay = day.format('ddd');
+const { populateTsv, formattedDay } = require('./playtomic.helper');
 
 describe('playtomic example', function () {
 	it('Search Nightwatch.js and check results', (browser) => {
 		browser
-			.navigateTo(`https://playtomic.io/we-are-padel-derby/f33c3aee-f075-408a-a69c-6c50309f0df2?q=PADEL~${day.format("YYYY-MM-DD")}~~~`)
+			.navigateTo(`https://playtomic.io/we-are-padel-derby/f33c3aee-f075-408a-a69c-6c50309f0df2?q=PADEL~${formattedDay}~~~`)
 			.waitForElementVisible('.bbq2__slots-resource')
 			.execute(() => {
 				const OPENING_HOUR = 6;
@@ -68,13 +58,6 @@ describe('playtomic example', function () {
 				 * 
 				 *  */
 				return takenSlots
-			}, [], ({ value }) => {
-				const courtTimes = Object.keys(value[1]);
-				const bookedSlots = Object.values(value).map((times) => Object.values(times));
-				const matrix = [Array(courtTimes.length).fill(nameOfTheDay), courtTimes, ...bookedSlots];
-				const csvWithoutCourtNames = transpose(matrix).map(row => row.join("\t"));
-				const csv = "\n" + csvWithoutCourtNames.join("\n");
-				fs.appendFileSync(path.join(__dirname , '../../data/playtomic_derby.tsv'), csv);
-			});
+			}, [], ({ value }) => populateTsv('derby', value))
 	});
 });
