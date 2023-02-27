@@ -6,12 +6,14 @@ describe('playtomic example', function () {
 			.navigateTo(`https://playtomic.io/rocks-lane-chiswick/9c95ac87-5273-47a9-bf67-342c566caf79?q=PADEL~${formattedDay}~~~`)
 			.waitForElementVisible('.bbq2__slots-resource')
 			.execute(() => {
-				const OPENING_HOUR = 6;
-				const WIDTH = 39;
+				const hours = [...document.querySelectorAll(".bbq2__hours > .bbq2__hour")].map(x => Number(x.innerText));
+				const openingTime = Math.min(...hours);
+				const closingTime = Math.max(...hours) + 1;
+				const WIDTH = Number(document.querySelector(".bbq2__slot").style.width.replace("px", ""));
 
 				const createAllHalfHoursSlots = () => {
 					const bookedHalfedHours = {};
-					for (let i = OPENING_HOUR; i < 24; i++) {
+					for (let i = openingTime; i < closingTime; i++) {
 						bookedHalfedHours[("" + i).padStart(2, "0") + ":00"] = 1;
 						bookedHalfedHours[("" + i).padStart(2, "0") + ":30"] = 1;
 					}
@@ -31,15 +33,16 @@ describe('playtomic example', function () {
 					const currentCourtIndex = court + 1;
 					takenSlots[currentCourtIndex] = createAllHalfHoursSlots();
 					slots.forEach((slot) => {
-						const time = (Number(slot.style.left.replace('px', '')) / WIDTH) + OPENING_HOUR;
-						let hours = Math.floor(time);
-						let isHalf = time % 1 === .5;
-						let timeKey = getTime(hours, isHalf);
-						takenSlots[currentCourtIndex][timeKey] = 0;
-
-						hours = Math.floor(time + .5);
-						timeKey = getTime(hours, !isHalf);
-						takenSlots[currentCourtIndex][timeKey] = 0;
+						const time = (Number(slot.style.left.replace('px', '')) / WIDTH) + openingTime;
+						// the free slots box could be 1h but also 1h30 (and maybe more)
+						const timeLength = Number(slot.style.width.replace('px', '') / WIDTH);
+						for (let i = 0; i < timeLength; i += .5) {
+							const offsetTime = time + i;
+							let hours = Math.floor(offsetTime);
+							let isHalf = offsetTime % 1 === .5;
+							let timeKey = getTime(hours, isHalf);
+							takenSlots[currentCourtIndex][timeKey] = 0;
+						}
 					});
 				});
 				/**
