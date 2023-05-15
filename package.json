@@ -11,7 +11,8 @@
     "playtomicSurge": "nightwatch .\\nightwatch\\examples\\playtomicSurge.js",
     "playtomicWilmslow": "nightwatch .\\nightwatch\\examples\\playtomicWilmslow.js",
     "stratford": "nightwatch .\\nightwatch\\examples\\stratford.js",
-    "start": "npm run stratford & npm run playtomicChiswick & npm run playtomicDerby & npm run playtomicSurge & npm run playtomicWilmslow"
+    "start": "npm run stratford & npm run playtomicChiswick & npm run playtomicDerby & npm run playtomicSurge & npm run playtomicWilmslow",
+    "tomorrow": "cross-env dayDelay=1 npm run stratford & npm run playtomicChiswick & npm run playtomicDerby & npm run playtomicSurge & npm run playtomicWilmslow"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "open": "8.4.1"
   },
   "devDependencies": {
-    "chromedriver": "109.0.0"
+    "chromedriver": "113.0.0",
+    "cross-env": "^7.0.3"
   }
 }
