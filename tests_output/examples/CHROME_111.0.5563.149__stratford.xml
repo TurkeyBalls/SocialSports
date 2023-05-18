@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="1"
+            tests="1">
+
+  <testsuite name="examples.stratford"
+    errors="1" failures="1" hostname="" id="" package="stratford" skipped="0"
+    tests="1" time="3.929" timestamp="">
+  
+    <testcase name="Search Nightwatch.js and check results" classname="examples.stratford" time="3.929" assertions="2">
+
+      <failure message="Error while running &#34;execute&#34; command: [TypeError] Cannot read properties of null (reading &#39;0&#39;)">TypeError: Cannot read properties of null (reading &#39;0&#39;)
+    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\nightwatch\examples\stratford.js:61:41)</failure>
+
+    
+    <error message="Error while running &#34;execute&#34; command: [TypeError] Cannot read properties of null (reading &#39;0&#39;)" type="error"><![CDATA[
+    TypeError: Cannot read properties of null (reading &#39;0&#39;)
+    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\nightwatch\examples\stratford.js:61:41)
+    at Object.apply (C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\node_modules\nightwatch\lib\api\_loaders\_base-loader.js:303:29)
+    at Utils.makePromise (C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\node_modules\nightwatch\lib\utils\index.js:185:28)
+    at C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\node_modules\nightwatch\lib\core\client.js:294:47
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    ]]></error>
+    
+    </testcase>
+  
+
+  
+    <system-err>
+       ✖ TypeError
+   Cannot read properties of null (reading &#39;0&#39;)
+
+    Error location:
+    C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\nightwatch\examples\stratford.js:
+    ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+     59 | return slotsByCourt;
+     60 | }, [], ({ value }) =&gt; {
+     61 | const courtTimes = Object.keys(value[0]); 
+     62 | const bookedSlots = value.map((court) =&gt; Object.values(court));
+     63 | console.log(value)
+    ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+    Stack Trace :
+    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\nightwatch\examples\stratford.js:61:41)
+    at Object.apply (C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\node_modules\nightwatch\lib\api\_loaders\_base-loader.js:303:29)
+    at Utils.makePromise (C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\node_modules\nightwatch\lib\utils\index.js:185:28)
+    at C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\node_modules\nightwatch\lib\core\client.js:294:47
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+    </system-err>
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

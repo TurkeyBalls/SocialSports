@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="examples.playtomicWilmslow"
+    errors="0" failures="1" hostname="" id="" package="playtomicWilmslow" skipped="0"
+    tests="1" time="7.984" timestamp="">
+  
+    <testcase name="Search Nightwatch.js and check results" classname="examples.playtomicWilmslow" time="7.984" assertions="1">  <failure message="Timed out while waiting for element &lt;.bbq2__slots-resource&gt; to be present for 5000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (5209ms)">    at DescribeInstance.&lt;anonymous&gt; (C:\Users\SamHill\Social Sports Society\Social Sports Society - Documents\Padel data\4_Sam\nightwatch\examples\playtomicWilmslow.js:7:5)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
