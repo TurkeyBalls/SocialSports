@@ -7,7 +7,7 @@ const transpose = m => m[0].map((_, i) => m.map(x => x[i]));
 // CAN CHANGE THE VALUE BELOW:
 // TODAY -> moment().add(0, 'days')
 // TOMORROW -> moment().add(1, 'days')
-const day = moment().add(0, 'days');
+const day = moment().add(1, 'days');
 const nameOfTheDay = day.format('ddd');
 
 module.exports = {
